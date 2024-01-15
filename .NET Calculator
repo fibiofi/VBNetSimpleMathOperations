@@ -1,0 +1,40 @@
+Module Module1
+    Sub Main()
+        Dim angka1, angka2, hasil As Double
+        Dim operasi As String
+
+        Console.WriteLine("Selamat datang di Kalkulator Sederhana!")
+
+        Console.Write("Masukkan angka pertama: ")
+        angka1 = Convert.ToDouble(Console.ReadLine())
+
+        Console.Write("Masukkan operator (+, -, *, /): ")
+        operasi = Console.ReadLine()
+
+        Console.Write("Masukkan angka kedua: ")
+        angka2 = Convert.ToDouble(Console.ReadLine())
+
+        Select Case operasi
+            Case "+"
+                hasil = angka1 + angka2
+            Case "-"
+                hasil = angka1 - angka2
+            Case "*"
+                hasil = angka1 * angka2
+            Case "/"
+                If angka2 <> 0 Then
+                    hasil = angka1 / angka2
+                Else
+                    Console.WriteLine("Error: Pembagian dengan nol tidak diizinkan.")
+                    Return
+                End If
+            Case Else
+                Console.WriteLine("Error: Operator tidak valid.")
+                Return
+        End Select
+
+        Console.WriteLine($"Hasil: {angka1} {operasi} {angka2} = {hasil}")
+
+        Console.ReadLine() ' Tahan agar konsol tidak langsung tertutup
+    End Sub
+End Module
